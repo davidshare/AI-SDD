@@ -8,6 +8,8 @@ Default to 3NF. Denormalize only with a stated, measured reason (e.g. a read-hea
 would otherwise require an expensive join on every request) — note the reason inline where you do.
 
 ## Tables
+<!-- Syntax below (DEFAULT NOW(), etc.) assumes Postgres-family SQL — adjust to whatever engine
+     architecture.md's Tech Stack actually names (e.g. GETDATE() on SQL Server). -->
 
 ### [table_name]
 | Column | Type | Constraints |
@@ -19,6 +21,15 @@ would otherwise require an expensive join on every request) — note the reason 
 
 ## Relationships
 - `[table].[fk_column]` → `[table].[column]` — [ON DELETE behavior and why]
+
+## Concurrency & Transactions
+<!-- Any row two agents/requests could try to update at the same time (a claimable task, a
+     counter, anything guardrails.md's Invariants call "exactly one X at a time") needs a stated
+     mechanism here, not just a constraint that assumes writes never race. -->
+- Isolation level: [e.g. "READ COMMITTED, default" — state it, don't leave it implicit]
+- `[table]` (contended on: [column, e.g. "status"]): [locking pattern — e.g. conditional
+  `UPDATE ... WHERE status = 'backlog'` and check rows-affected = 1; or `SELECT ... FOR UPDATE`;
+  or an optimistic-lock `version` column] — enforces guardrails.md's "[invariant]"
 
 ## Indexes
 - `[table].[column]` — [what query pattern this serves; don't index speculatively]

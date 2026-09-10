@@ -33,11 +33,11 @@ another agent's file. That's what makes context partitioning actually save token
 | product-manager | 2→3 transition | project-overview.md, glossary.md, architecture.md, api-contract.md, data-schema.md, design-system.md, guardrails.md, definition-of-ready.md, definition-of-done.md | issues/, story list |
 | tech-lead | all | everything | progress-tracker.md, dependency-graph.json (exclusively) |
 | systems-architect | 2 | project-overview.md, guardrails.md, environment.md | architecture.md, api-contract.md, adr/, guardrails.md (sole writer) |
-| database-designer | 2 | project-overview.md, architecture.md, api-contract.md | data-schema.md |
+| database-designer | 2 | project-overview.md, architecture.md, api-contract.md, guardrails.md | data-schema.md |
 | ui-ux-designer | 2 | project-overview.md | design-system.md |
-| backend-engineer | 3 | api-contract.md, data-schema.md, coding-standards.md, guardrails.md | source + tests |
-| frontend-engineer | 3 | api-contract.md, design-system.md, coding-standards.md | source + tests |
-| devops-engineer | 3–4 | architecture.md, environment.md, coding-standards.md | Docker/CI config |
-| code-reviewer | 3 | coding-standards.md, guardrails.md, the diff | review verdict |
-| qa-engineer | 3 | testing-guidelines.md, api-contract.md, the code | tests, bug reports |
-| security-analyst | 2, 3 | guardrails.md, architecture.md, the code | security report |
+| backend-engineer | 3 | api-contract.md, data-schema.md, coding-standards.md, guardrails.md, environment.md, testing-guidelines.md | source + tests |
+| frontend-engineer | 3 | api-contract.md, design-system.md, coding-standards.md, environment.md, testing-guidelines.md | source + tests |
+| devops-engineer | 3–4 | architecture.md, environment.md, coding-standards.md, guardrails.md, testing-guidelines.md, data-schema.md, gate-checks.md, concurrency-protocol.md | Docker/CI config |
+| code-reviewer | 3 | coding-standards.md, guardrails.md, api-contract.md/data-schema.md/design-system.md as relevant, the diff | review verdict |
+| qa-engineer | 3 | testing-guidelines.md, api-contract.md, design-system.md (frontend issues), guardrails.md, the code | tests, bug reports |
+| security-analyst | 2, 3 | guardrails.md, architecture.md, api-contract.md, data-schema.md, the code | security report |

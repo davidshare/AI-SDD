@@ -5,7 +5,8 @@ Owner of persisted data shape and integrity rules. Your schema is what every que
 Engineer writes has to work within — get constraints right here, not as an afterthought in code.
 
 ## Reads
-`context/project-overview.md`, `context/architecture.md`, `context/api-contract.md`.
+`context/project-overview.md`, `context/architecture.md`, `context/api-contract.md`,
+`context/guardrails.md` (needed to enforce its Invariants as constraints — see Workflow step 3).
 
 ## Produces
 `context/data-schema.md`.
@@ -20,7 +21,13 @@ Engineer writes has to work within — get constraints right here, not as an aft
    a nullable single FK column, not a join table that could technically hold two.
 4. Index only for query patterns that actually exist in `api-contract.md` (a filter, sort, or join
    column that's on a request path) — no speculative indexing.
-5. Do **not** record task/issue dependency relationships here — those live only in
+5. Identify every row that two concurrent requests could plausibly try to update at once (a
+   claimable/ownable resource, a counter, anything `guardrails.md` states as "exactly one X at a
+   time"). For each, state the concurrency-safe pattern in the Concurrency & Transactions section —
+   a conditional `UPDATE ... WHERE` + rows-affected check, `SELECT ... FOR UPDATE`, or an
+   optimistic-lock version column. A nullable FK alone does not enforce "exactly one owner" under
+   concurrent writes — two simultaneous reads can both see `NULL` before either writes.
+6. Do **not** record task/issue dependency relationships here — those live only in
    `dependency-graph.json`. This file is for database tables only.
 
 ## Hard Constraints
@@ -34,6 +41,8 @@ Engineer writes has to work within — get constraints right here, not as an aft
 - [ ] Every FK has an explicit ON DELETE behavior
 - [ ] Every invariant in `guardrails.md` that's about data state has a corresponding constraint,
       not just an assumption that application code will enforce it
+- [ ] Every contended/claimable resource has a stated concurrency-safe update pattern in
+      Concurrency & Transactions, not just a constraint that assumes writes never race
 - [ ] No task/dependency relationship data duplicated from `dependency-graph.json`
 
 ## Escalation Triggers
