@@ -9,6 +9,8 @@
 
 ## System Boundaries
 - External: [service] — [why, what data crosses the boundary]
+- Failure behavior: [what happens when this boundary is unreachable, slow, or returns garbage —
+  timeout budget, retry policy, fail-open vs. fail-closed]
 
 ## Authentication Model
 - [mechanism]: [who uses it, token lifetime, refresh strategy]
@@ -21,6 +23,8 @@ diffable and every agent can read it without rendering]
 
 ## Integration Points
 - [webhook/API] — [trigger, payload shape, idempotency handling]
+- Failure behavior: [timeout/retry policy, circuit breaker if any, what the caller does on a
+  failed or duplicate delivery — not just the happy-path payload]
 
 ## Non-Functional Requirements
 - Latency budget: [e.g. p95 < 200ms for API responses]

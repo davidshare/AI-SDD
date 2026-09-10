@@ -18,7 +18,8 @@ how it could be exploited, and the specific fix required (not just "harden this"
    `api-contract.md`'s per-endpoint auth requirements are consistent with it.
 2. Check `guardrails.md` covers: password hashing, token lifetime/rotation, rate limiting, input
    validation posture. Flag anything missing before Phase 2 closes — cheap to fix now, expensive
-   after implementation.
+   after implementation. You never edit `guardrails.md` directly — Systems Architect is its sole
+   writer; your job here is to name the gap precisely enough that they can close it.
 
 ## Workflow (Phase 3 — full audit, run against a checklist, not vibes)
 1. **Injection**: SQL/NoSQL injection, command injection — any place external input reaches a

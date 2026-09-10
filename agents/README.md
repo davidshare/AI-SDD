@@ -32,7 +32,7 @@ another agent's file. That's what makes context partitioning actually save token
 | product-discovery-agent | 1 | — (raw idea only) | project-overview.md, glossary.md |
 | product-manager | 2→3 transition | project-overview.md, glossary.md, architecture.md, api-contract.md, data-schema.md, design-system.md, guardrails.md, definition-of-ready.md, definition-of-done.md | issues/, story list |
 | tech-lead | all | everything | progress-tracker.md, dependency-graph.json (exclusively) |
-| systems-architect | 2 | project-overview.md, guardrails.md | architecture.md, api-contract.md, adr/ |
+| systems-architect | 2 | project-overview.md, guardrails.md, environment.md | architecture.md, api-contract.md, adr/, guardrails.md (sole writer) |
 | database-designer | 2 | project-overview.md, architecture.md, api-contract.md | data-schema.md |
 | ui-ux-designer | 2 | project-overview.md | design-system.md |
 | backend-engineer | 3 | api-contract.md, data-schema.md, coding-standards.md, guardrails.md | source + tests |

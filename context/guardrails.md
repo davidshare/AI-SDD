@@ -1,5 +1,8 @@
 # Guardrails
-<!-- Owner: Systems Architect + Security Analyst, co-authored in Phase 2. -->
+<!-- Owner: Systems Architect (sole writer, per concurrency-protocol.md's single-writer-per-file
+     principle). Security Analyst reviews this file during its Phase 2 design smell check and
+     flags gaps in its handoff/security report; it never edits this file directly — Systems
+     Architect incorporates the flagged gaps and writes the update. -->
 
 ## Security
 - Passwords: bcrypt, cost factor 12 minimum.
