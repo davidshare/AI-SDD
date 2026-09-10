@@ -1,0 +1,22 @@
+{
+  "_comment": "This is the SCHEMA/example, not live data. The real dependency-graph.json is written and owned exclusively by the Tech Lead (handoff-protocol.md §2). This is the ONLY place task dependencies are recorded — issue files reference an ID and nothing else, to avoid the drift that comes from storing the same relationship twice.",
+  "tasks": {
+    "issue-001": {
+      "title": "Build login API",
+      "domain": "backend",
+      "status": "done",
+      "owner": null,
+      "depends_on": [],
+      "blocks": ["issue-010", "issue-020"]
+    },
+    "issue-010": {
+      "title": "Build login UI",
+      "domain": "frontend",
+      "status": "claimed",
+      "owner": "frontend-engineer",
+      "depends_on": ["issue-001"],
+      "blocks": ["issue-020"]
+    }
+  },
+  "_validation_rule": "Before execution and after every write, run a topological sort. A cycle halts the Tech Lead and raises status: blocked — do not attempt to auto-break the cycle."
+}
