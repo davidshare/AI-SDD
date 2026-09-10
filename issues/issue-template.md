@@ -13,6 +13,14 @@
 [What needs to be built, specifically enough that the assigned agent doesn't have to guess.]
 
 ## Acceptance Criteria
+<!-- Be as thorough here as the feature itself. Cover realistic failure/misuse modes, not just the
+     happy path — for EVERY domain, not just backend/auth: backend (bad/boundary/malicious input,
+     concurrency, partial failures), frontend (empty/loading/error states, offline, double-submit,
+     accessibility), devops (failed/partial deploy, missing secret, rollback), integration
+     (third-party timeout, malformed/duplicate/out-of-order events). Pull concrete numbers from
+     context/guardrails.md where relevant (rate limits, hashing cost, latency budget). "Passes
+     Security Analyst review" below is a verification gate, not a substitute for specifying what
+     should be true. -->
 - [ ] [Criterion 1 — testable, not "works correctly"]
 - [ ] Passes QA test suite
 - [ ] Passes Security Analyst review (if it touches auth, input handling, or data access)

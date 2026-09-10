@@ -32,7 +32,14 @@ Field rules:
   `spec-amendment-protocol.md`).
 - `state_updates` — **the only way** an agent affects `progress-tracker.md` or
   `dependency-graph.json`. Agents never write these files directly (see rule 2). Valid `op` values:
-  `set_status`, `add_blocker`, `add_changelog_entry`. Anything else is rejected by the Tech Lead.
+  `create_task`, `set_status`, `add_blocker`, `add_changelog_entry`. Anything else is rejected by
+  the Tech Lead.
+  - `create_task` — proposes a brand-new entry in `dependency-graph.json`. Used almost exclusively
+    by Product Manager when turning `project-overview.md` into issues. `target` is the new
+    `task_id`; `value` is the full task object matching `dependency-graph.schema.json`'s shape
+    (`title`, `domain`, `status: "backlog"`, `owner: null`, `depends_on`, `blocks`). Tech Lead
+    rejects it if the resulting graph would contain a cycle (topological sort fails) or if
+    `task_id` already exists.
 - `blocked_reason` — required and non-null when `status` is `blocked`. One sentence, specific
   enough that the Tech Lead doesn't have to ask a follow-up.
 
