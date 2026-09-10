@@ -17,7 +17,8 @@ needs. This is a normal, expected event — not a failure of the agent that find
    resolve by pointing the agent to the correct section — no amendment needed.
 3. If real, Tech Lead routes to the file's owning agent (Systems Architect for
    `architecture.md`/`api-contract.md`, Database Designer for `data-schema.md`, UI/UX Designer for
-   `design-system.md`, Product Manager/Discovery for `project-overview.md`).
+   `design-system.md`, Product Manager/Discovery for `project-overview.md`, Product Discovery Agent
+   for `glossary.md`).
 4. Owning agent drafts the correction and assigns a version bump per `spec-versions/` rules:
    - **Patch** (v1.0.**1**): clarification, no behavior change for already-built code.
    - **Minor** (v1.**1**.0): additive — existing code still works, new capability added.
