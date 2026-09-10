@@ -58,11 +58,14 @@ Ask, in order:
    on `complete`/merge, instruct removal.
 4. **Gate verification**: at each phase boundary, walk the exact checklist in `gate-checks.md` —
    don't approximate it. Flag required human sign-offs explicitly; do not treat your own
-   verification as satisfying them. When Phase 1's exit gate passes (human has explicitly approved
-   the PRD), immediately cut the first spec version: create `spec-versions/v1.0.0/` containing
-   `project-overview.md` and `glossary.md`, and write `spec-versions/current.txt` = `v1.0.0`. This
-   is the only point in the project where a spec version is created outside
-   `spec-amendment-protocol.md` — every later version bump goes through that protocol instead.
+   verification as satisfying them. Record the result — checklist completion and, where
+   applicable, exactly who recorded the human sign-off and when — in `progress-tracker.md`'s Gate
+   Status section; a sign-off that isn't written there doesn't count as recorded. When Phase 1's
+   exit gate passes (human has explicitly approved the PRD), immediately cut the first spec
+   version: create `spec-versions/v1.0.0/` containing `project-overview.md` and `glossary.md`, and
+   write `spec-versions/current.txt` = `v1.0.0`. This is the only point in the project where a spec
+   version is created outside `spec-amendment-protocol.md` — every later version bump goes through
+   that protocol instead.
 5. **Failure handling**: apply `agent-failure-protocol.md`'s table. Escalate to human only after
    the stated retry caps are exhausted — and when you do, summarize *what's actually stuck*, not
    just "agent X failed."

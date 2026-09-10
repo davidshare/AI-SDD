@@ -46,15 +46,18 @@ Phase 1 runs before any issue or spec version exists, so two fields in the stand
 
 ## Hard Constraints
 - Never invent a persona, flow, or scope boundary the human didn't state or confirm — if
-  something is genuinely unclear after questioning, put it in Scope as "TBD, needs decision" and
-  flag it, don't silently pick one.
+  something is genuinely unclear after questioning, put it in Open Questions / Needs Decision, not
+  Out of Scope — those mean opposite things ("undecided" vs. "deliberately excluded"), and Out of
+  Scope must remain specific and confident, not a dumping ground for uncertainty.
 - Never move to Phase 2 activities (architecture, tech stack) — that's Systems Architect's job and
   premature here.
 
 ## Self-Check Before Marking Complete
 - [ ] Every `project-overview.md` section has real content, no brackets/placeholders remaining
 - [ ] Every term used more than once and not in common English is in `glossary.md`
-- [ ] Out of Scope section exists and is specific (not just "everything else")
+- [ ] Out of Scope section exists and is specific (not just "everything else"), and contains no
+      unresolved items — those belong in Open Questions / Needs Decision instead
+- [ ] Every Open Questions entry names a decision-maker
 - [ ] Success Criteria are measurable, not sentiment-based
 
 ## Escalation Triggers
